@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanyama — GTM Operator & Revenue Strategist</title>
+<meta name="description" content="Kanyama Mwiinga — GTM Operator, Revenue Operations, Data-Driven Growth Strategist based in Johannesburg.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #0D1F14;
+  --bg2:      #111f17;
+  --surface:  #152B1C;
+  --surface2: #1A3320;
+  --border:   rgba(245,240,232,0.08);
+  --border2:  rgba(245,240,232,0.14);
+  --cream:    #F5F0E8;
+  --cream2:   rgba(245,240,232,0.6);
+  --cream3:   rgba(245,240,232,0.35);
+  --gold:     #C9A84C;
+  --gold2:    rgba(201,168,76,0.15);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--gold); color: var(--bg); }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 2px; }
+
+/* ── Nav ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.25rem 4rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s, background 0.3s;
+}
+nav.scrolled {
+  border-color: var(--border);
+  background: rgba(13,31,20,0.92);
+  backdrop-filter: blur(12px);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--cream);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--cream2);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--cream); }
+
+/* ── Sections ── */
+section { padding: 8rem 4rem; max-width: 1100px; margin: 0 auto; }
+
+/* ── Hero ── */
+#hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding-top: 0; padding-bottom: 0;
+  max-width: none;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  width: 100%;
+}
+.hero-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.2s forwards;
+}
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 9vw, 8.5rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.35s forwards;
+}
+.hero-name em {
+  font-style: italic;
+  color: var(--cream2);
+}
+.hero-descriptor {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--cream2);
+  max-width: 480px;
+  margin-bottom: 3rem;
+  line-height: 1.8;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.5s forwards;
+}
+.hero-descriptor strong {
+  color: var(--cream);
+  font-weight: 400;
+}
+.hero-actions {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.65s forwards;
+}
+.btn-primary {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  background: var(--cream);
+  color: var(--bg);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--cream);
+  transition: background 0.2s, color 0.2s;
+}
+.btn-primary:hover { background: var(--gold); border-color: var(--gold); color: var(--bg); }
+.btn-ghost {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  background: transparent;
+  color: var(--cream2);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--border2);
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: var(--cream2); color: var(--cream); }
+
+.hero-rule {
+  position: absolute; bottom: 3rem; left: 4rem;
+  display: flex; align-items: center; gap: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.8s forwards;
+}
+.hero-rule-line { width: 40px; height: 1px; background: var(--border2); }
+.hero-rule-text { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream3); }
+
+/* Decorative grid lines */
+#hero::before {
+  content: '';
+  position: absolute; top: 0; right: 0;
+  width: 1px; height: 100%;
+  background: var(--border);
+  right: calc(50% - 550px);
+}
+
+/* ── Section label ── */
+.section-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  margin-bottom: 3rem;
+}
+.section-title em { font-style: italic; color: var(--cream2); }
+
+/* ── Divider ── */
+.h-rule {
+  height: 1px;
+  background: var(--border);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── About ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.about-body {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--cream2);
+}
+.about-body p { margin-bottom: 1.25rem; }
+.about-body p:last-child { margin-bottom: 0; }
+.about-body strong { color: var(--cream); font-weight: 400; }
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.stat-block {
+  background: var(--surface);
+  padding: 2rem 1.75rem;
+  transition: background 0.2s;
+}
+.stat-block:hover { background: var(--surface2); }
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--cream3);
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+}
+
+/* ── Dashboard section ── */
+#dashboard { max-width: none; margin: 0; padding: 8rem 4rem; }
+.dashboard-inner { max-width: 1100px; margin: 0 auto; }
+.dashboard-frame {
+  border: 1px solid var(--border2);
+  background: var(--surface);
+  padding: 2.5rem;
+  margin-top: 2rem;
+  position: relative;
+}
+.dashboard-frame::before {
+  content: 'LIVE DASHBOARD';
+  position: absolute;
+  top: -0.6rem; left: 2rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  background: var(--bg);
+  padding: 0 0.5rem;
+}
+
+/* ── Dashboard internal styles (scoped inside .dashboard-frame) ── */
+.dashboard-frame * { box-sizing: border-box; }
+.df-nav { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(245,240,232,0.1); }
+.df-tab { font-size: 12px; padding: 5px 12px 9px; border: none; background: none; cursor: pointer; color: rgba(245,240,232,0.5); border-bottom: 2px solid transparent; margin-bottom: -1px; font-family: var(--font-body); transition: color 0.15s; }
+.df-tab:hover { color: rgba(245,240,232,0.8); }
+.df-tab.on { color: #F5F0E8; border-bottom-color: #C9A84C; }
+.df-section { display: none; }
+.df-section.on { display: block; }
+.df-header { margin-bottom: 1.25rem; }
+.df-title { font-size: 13px; color: rgba(245,240,232,0.5); margin-bottom: 2px; letter-spacing: 0.08em; text-transform: uppercase; font-size: 10px; }
+.df-sub { font-size: 11px; color: rgba(245,240,232,0.3); }
+.df-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap: 8px; margin-bottom: 1.25rem; }
+.df-metric { background: rgba(245,240,232,0.04); border: 1px solid rgba(245,240,232,0.08); padding: 0.875rem 1rem; }
+.df-m-label { font-size: 10px; color: rgba(245,240,232,0.4); margin-bottom: 5px; letter-spacing: 0.06em; text-transform: uppercase; }
+.df-m-val { font-size: 20px; font-weight: 500; color: #F5F0E8; line-height: 1; font-family: var(--font-body); }
+.df-m-delta { font-size: 10px; margin-top: 3px; }
+.df-up { color: #5DCAA5; } .df-neu { color: rgba(245,240,232,0.35); } .df-dn { color: #D85A30; }
+.df-two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+.df-card { background: rgba(245,240,232,0.03); border: 1px solid rgba(245,240,232,0.08); padding: 1rem; margin-bottom: 10px; }
+.df-card-title { font-size: 11px; color: rgba(245,240,232,0.5); margin-bottom: 10px; letter-spacing: 0.05em; text-transform: uppercase; }
+.df-chart-wrap { position: relative; width: 100%; }
+.df-bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+.df-bar-label { font-size: 11px; color: rgba(245,240,232,0.5); min-width: 70px; }
+.df-bar-track { flex: 1; height: 6px; background: rgba(245,240,232,0.07); border-radius: 3px; overflow: hidden; }
+.df-bar-fill { height: 100%; border-radius: 3px; transition: width 0.5s; }
+.df-bar-pct { font-size: 10px; color: rgba(245,240,232,0.35); min-width: 28px; text-align: right; }
+.df-table { width: 100%; border-collapse: collapse; font-size: 11px; table-layout: fixed; }
+.df-table th { text-align: left; font-size: 10px; color: rgba(245,240,232,0.35); padding: 5px 8px; border-bottom: 1px solid rgba(245,240,232,0.08); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 400; }
+.df-table td { padding: 7px 8px; border-bottom: 1px solid rgba(245,240,232,0.05); color: rgba(245,240,232,0.65); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.df-table tr:last-child td { border-bottom: none; }
+.df-badge { display: inline-block; font-size: 9px; font-weight: 500; padding: 2px 6px; border-radius: 2px; letter-spacing: 0.04em; text-transform: uppercase; }
+.df-b-green { background: rgba(93,202,165,0.15); color: #5DCAA5; }
+.df-b-amber { background: rgba(186,117,23,0.2); color: #EF9F27; }
+.df-b-red { background: rgba(216,90,48,0.15); color: #D85A30; }
+.df-ws-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap: 8px; margin-bottom: 1rem; }
+.df-ws-card { background: rgba(245,240,232,0.03); border: 1px solid rgba(245,240,232,0.07); padding: 0.75rem; }
+.df-ws-account { font-size: 12px; color: #F5F0E8; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.df-ws-v { font-size: 10px; color: rgba(245,240,232,0.35); margin-bottom: 6px; }
+.df-ws-opp { font-size: 17px; font-weight: 500; color: #C9A84C; font-family: var(--font-body); }
+.df-ws-lbl { font-size: 10px; color: rgba(245,240,232,0.3); }
+.df-insight { background: rgba(201,168,76,0.06); border: 1px solid rgba(201,168,76,0.2); padding: 0.875rem 1rem; margin-top: 10px; }
+.df-insight-title { font-size: 10px; color: #C9A84C; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; font-weight: 500; }
+.df-insight-body { font-size: 11px; color: rgba(245,240,232,0.55); line-height: 1.65; }
+.df-sql { background: rgba(0,0,0,0.3); border: 1px solid rgba(245,240,232,0.07); padding: 0.875rem 1rem; font-family: 'Courier New', monospace; font-size: 10px; color: rgba(245,240,232,0.5); line-height: 1.8; white-space: pre-wrap; margin-bottom: 10px; overflow-x: auto; }
+.df-kw { color: #5DCAA5; } .df-fn { color: #C9A84C; } .df-str { color: #EF9F27; } .df-cmt { color: rgba(245,240,232,0.25); }
+.df-filter-row { display: flex; gap: 8px; margin-bottom: 1rem; flex-wrap: wrap; align-items: center; }
+.df-filter-row label { font-size: 11px; color: rgba(245,240,232,0.4); }
+.df-filter-row select { font-size: 11px; padding: 4px 8px; background: var(--surface); color: rgba(245,240,232,0.7); border: 1px solid rgba(245,240,232,0.12); border-radius: 2px; }
+.df-legend { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 8px; font-size: 11px; color: rgba(245,240,232,0.5); }
+.df-legend-item { display: flex; align-items: center; gap: 5px; }
+.df-legend-sq { width: 8px; height: 8px; border-radius: 1px; flex-shrink: 0; }
+@media(max-width: 580px) { .df-two { grid-template-columns: 1fr; } }
+
+/* ── Work ── */
+.work-list { display: flex; flex-direction: column; gap: 0; }
+.work-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.work-item:last-child { border-bottom: 1px solid var(--border); }
+.work-meta { padding-top: 0.25rem; }
+.work-company {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.work-period {
+  font-size: 0.78rem;
+  color: var(--cream3);
+}
+.work-role {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--cream);
+  margin-bottom: 0.875rem;
+  line-height: 1.2;
+}
+.work-desc {
+  font-size: 0.9rem;
+  color: var(--cream2);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+.work-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.work-tag {
+  font-size: 0.68rem;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--border2);
+  color: var(--cream3);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Skills ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+.skills-col-title {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.skill-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: var(--cream2);
+}
+.skill-item:last-child { border-bottom: none; }
+.skill-bar { width: 60px; height: 2px; background: var(--border2); position: relative; }
+.skill-bar-fill { position: absolute; top: 0; left: 0; height: 100%; background: var(--gold); }
+
+/* ── Contact ── */
+#contact { text-align: center; }
+.contact-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--cream2);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 1.3;
+}
+.contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 4rem; }
+.contact-link {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cream2);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border2);
+  padding-bottom: 0.2rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+.contact-link:hover { color: var(--gold); border-color: var(--gold); }
+.contact-note {
+  font-size: 0.8rem;
+  color: var(--cream3);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* ── Footer ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+  color: var(--cream3);
+  letter-spacing: 0.06em;
+  max-width: none;
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  section { padding: 5rem 1.5rem; }
+  .hero-inner { padding: 0 1.5rem; }
+  #hero::before { display: none; }
+  .hero-rule { left: 1.5rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .work-item { grid-template-columns: 1fr; gap: 0.75rem; }
+  .skills-grid { grid-template-columns: 1fr; gap: 2rem; }
+  #dashboard { padding: 5rem 1.5rem; }
+  .dashboard-frame { padding: 1.25rem; }
+  footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">Kanyama</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#dashboard">Dashboard</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">GTM Operator &nbsp;·&nbsp; Revenue Operations &nbsp;·&nbsp; Johannesburg</div>
+    <h1 class="hero-name">Mubanga<br><em>Kanyama</em><br>Mwiinga</h1>
+    <p class="hero-descriptor">
+      I build <strong>sales motions from zero</strong>, convert pipeline data into business decisions,
+      and align cross-functional teams around <strong>growth programs that move fast</strong>.
+    </p>
+    <div class="hero-actions">
+      <a href="#dashboard" class="btn-primary">View my work</a>
+      <a href="Kanyama_Mwiinga_CV.docx" download class="btn-ghost">Download CV</a>
+    </div>
+  </div>
+  <div class="hero-rule">
+    <div class="hero-rule-line"></div>
+    <span class="hero-rule-text">kanyama.co</span>
+  </div>
+</section>
+
+<div class="h-rule"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label fade-in">About</div>
+  <div class="about-grid">
+    <div class="about-body fade-in">
+      <p>Most people with 4 years of experience have worked at 1–2 companies. I've worked at 6 — <strong>on purpose</strong>.</p>
+      <p>Each move was a deliberate acquisition of a different commercial lens: sales fundamentals, outbound GTM design, marketing analytics, enterprise BizDev, data-driven reporting. That range is exactly what <strong>Revenue Operations demands</strong> — the ability to sit between product, sales, and data, and make sense of all three simultaneously.</p>
+      <p>My trajectory is intentional: <strong>BCom Marketing Management</strong> from the University of Pretoria, a <strong>Data Science for Managers</strong> certification, an ongoing <strong>DataCamp analytics track</strong>, and hands-on SQL and CRM toolstack experience built through roles that required me to use data to make decisions, not just report on them.</p>
+      <p>I'm currently targeting <strong>RevOps and Product Growth roles</strong> where pipeline analytics, GTM program design, and cross-functional execution intersect. The Snowflake PGS dashboard below is the clearest proof of how I think.</p>
+    </div>
+    <div class="fade-in">
+      <div class="stat-grid">
+        <div class="stat-block">
+          <div class="stat-number">R43K</div>
+          <div class="stat-label">in a single sales month while studying full-time exams</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number">2×</div>
+          <div class="stat-label">Top Performer of the Month in a 90% commission-only team</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number">6</div>
+          <div class="stat-label">companies across sales, marketing, analytics & BizDev</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number">Day 1</div>
+          <div class="stat-label">founding GTM hire at Olive Group — built the entire motion from zero</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="h-rule"></div>
+
+<!-- DASHBOARD -->
+<section id="dashboard">
+  <div class="dashboard-inner">
+    <div class="section-label fade-in">Proof of work</div>
+    <h2 class="section-title fade-in">Snowflake PGS<br><em>Command Centre</em></h2>
+    <p class="fade-in" style="font-size:0.9rem;color:var(--cream2);max-width:520px;margin-bottom:0;line-height:1.8;">
+      I built the tool a Snowflake Product Growth Specialist would use on day 30 — before the interview.
+      Real SQL queries, simulated EMEA/APAC theater data, three GTM views: adoption, whitespace, and product attach rate.
+    </p>
+
+    <div class="dashboard-frame fade-in">
+      <!-- EMBEDDED DASHBOARD -->
+      <div class="df-header">
+        <div class="df-title">Snowflake DE GTM — PGS Command Centre</div>
+        <div class="df-sub">EMEA & APAC Theater &nbsp;·&nbsp; Data Engineering &nbsp;·&nbsp; Q2 FY2026 &nbsp;·&nbsp; Simulated dataset</div>
+      </div>
+
+      <div class="df-nav">
+        <button class="df-tab on" onclick="dfTab('gtm',this)">GTM adoption</button>
+        <button class="df-tab" onclick="dfTab('ws',this)">Pipeline whitespace</button>
+        <button class="df-tab" onclick="dfTab('attach',this)">Product attach rate</button>
+        <button class="df-tab" onclick="dfTab('sql',this)">SQL queries</button>
+      </div>
+
+      <!-- GTM TAB -->
+      <div id="df-gtm" class="df-section on">
+        <div class="df-metrics">
+          <div class="df-metric"><div class="df-m-label">Reps running DE play</div><div class="df-m-val">61%</div><div class="df-m-delta df-up">+14pp vs Q1</div></div>
+          <div class="df-metric"><div class="df-m-label">Active pipeline</div><div class="df-m-val">$8.4M</div><div class="df-m-delta df-up">+$2.1M vs Q1</div></div>
+          <div class="df-metric"><div class="df-m-label">Avg deal cycle</div><div class="df-m-val">38d</div><div class="df-m-delta df-up">-9 days vs Q1</div></div>
+          <div class="df-metric"><div class="df-m-label">SE enablement score</div><div class="df-m-val">74%</div><div class="df-m-delta df-neu">Target: 85%</div></div>
+        </div>
+        <div class="df-two">
+          <div class="df-card">
+            <div class="df-card-title">Rep participation by region</div>
+            <div id="df-rep-bars"></div>
+          </div>
+          <div class="df-card">
+            <div class="df-card-title">Weekly activation trend</div>
+            <div class="df-chart-wrap" style="height:160px"><canvas id="df-trend" role="img" aria-label="Line chart of weekly activation rate rising from 38% to 72% over 8 weeks">W1 38%, W2 42%, W3 47%, W4 51%, W5 55%, W6 61%, W7 67%, W8 72%.</canvas></div>
+          </div>
+        </div>
+        <div class="df-card">
+          <div class="df-card-title">Rep-level adoption tracker</div>
+          <table class="df-table">
+            <thead><tr><th style="width:22%">Rep</th><th style="width:18%">Region</th><th style="width:14%">DE play</th><th style="width:18%">Pipeline</th><th style="width:12%">Deals</th><th style="width:16%">Status</th></tr></thead>
+            <tbody id="df-rep-tbl"></tbody>
+          </table>
+        </div>
+        <div class="df-insight">
+          <div class="df-insight-title">PGS insight — action required</div>
+          <div class="df-insight-body">UKI and Nordics are 22pp below DACH in play adoption. Root cause: SEs haven't completed the Snowpark enablement module. Recommended action: prioritise SE workshop for UKI + Nordics in Week 9. Estimated pipeline impact: +$1.2M if adoption reaches DACH parity within 30 days.</div>
+        </div>
+      </div>
+
+      <!-- WHITESPACE TAB -->
+      <div id="df-ws" class="df-section">
+        <div class="df-metrics">
+          <div class="df-metric"><div class="df-m-label">Whitespace accounts</div><div class="df-m-val">47</div><div class="df-m-delta df-neu">No DE attach yet</div></div>
+          <div class="df-metric"><div class="df-m-label">Est. addressable ARR</div><div class="df-m-val">$22.6M</div><div class="df-m-delta df-up">Top priority tier</div></div>
+          <div class="df-metric"><div class="df-m-label">Avg account potential</div><div class="df-m-val">$481K</div><div class="df-m-delta df-neu">ARR whitespace</div></div>
+          <div class="df-metric"><div class="df-m-label">Top gap verticals</div><div class="df-m-val" style="font-size:14px;padding-top:4px">FSI · Retail</div><div class="df-m-delta df-neu">3 flagged</div></div>
+        </div>
+        <div class="df-filter-row">
+          <label>Vertical:</label>
+          <select id="df-vf" onchange="dfWS()">
+            <option value="all">All</option>
+            <option value="FSI">FSI</option>
+            <option value="Retail">Retail</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Media">Media</option>
+            <option value="Manufacturing">Manufacturing</option>
+          </select>
+          <label style="margin-left:8px">Sort:</label>
+          <select id="df-vs" onchange="dfWS()">
+            <option value="opp">By opportunity ($)</option>
+            <option value="score">By whitespace score</option>
+          </select>
+        </div>
+        <div id="df-ws-cards" class="df-ws-grid"></div>
+        <div class="df-card">
+          <div class="df-card-title">Whitespace ARR gap by vertical</div>
+          <div class="df-chart-wrap" style="height:190px"><canvas id="df-ws-chart" role="img" aria-label="Horizontal bar chart: FSI $7.2M, Retail $5.8M, Healthcare $4.1M, Media $3.4M, Manufacturing $2.1M">FSI $7.2M, Retail $5.8M, Healthcare $4.1M, Media $3.4M, Manufacturing $2.1M.</canvas></div>
+        </div>
+        <div class="df-insight">
+          <div class="df-insight-title">PGS insight — top whitespace play</div>
+          <div class="df-insight-body">FSI accounts with Snowflake core contracts but no DE attach represent the single largest expansion opportunity ($7.2M). These accounts already trust the platform — the barrier is awareness, not procurement. Recommend a targeted DE fast-start campaign to AEs in FSI vertical this quarter.</div>
+        </div>
+      </div>
+
+      <!-- ATTACH TAB -->
+      <div id="df-attach" class="df-section">
+        <div class="df-metrics">
+          <div class="df-metric"><div class="df-m-label">Overall DE attach rate</div><div class="df-m-val">43%</div><div class="df-m-delta df-up">+8pp vs Q1</div></div>
+          <div class="df-metric"><div class="df-m-label">Snowpark attach</div><div class="df-m-val">31%</div><div class="df-m-delta df-up">+11pp vs Q1</div></div>
+          <div class="df-metric"><div class="df-m-label">Dynamic Tables</div><div class="df-m-val">28%</div><div class="df-m-delta df-up">+6pp vs Q1</div></div>
+          <div class="df-metric"><div class="df-m-label">3+ DE products</div><div class="df-m-val">19%</div><div class="df-m-delta df-neu">Target: 35%</div></div>
+        </div>
+        <div class="df-two">
+          <div class="df-card">
+            <div class="df-card-title">DE attach by account tier</div>
+            <div class="df-chart-wrap" style="height:180px"><canvas id="df-attach-chart" role="img" aria-label="Grouped bar chart: Enterprise Q1 58% Q2 68%, Commercial Q1 33% Q2 41%, SMB Q1 16% Q2 22%">Enterprise 68%, Commercial 41%, SMB 22%.</canvas></div>
+          </div>
+          <div class="df-card">
+            <div class="df-card-title">Product attach mix</div>
+            <div class="df-chart-wrap" style="height:180px"><canvas id="df-mix-chart" role="img" aria-label="Doughnut: Snowpark 31%, Dynamic Tables 28%, Streams & Tasks 24%, Iceberg Tables 17%">Snowpark 31%, Dynamic Tables 28%, Streams & Tasks 24%, Iceberg Tables 17%.</canvas></div>
+          </div>
+        </div>
+        <div class="df-card">
+          <div class="df-card-title">Q1 vs Q2 attach by product</div>
+          <div class="df-legend">
+            <span class="df-legend-item"><span class="df-legend-sq" style="background:#1D6E4F"></span>Q1 FY2026</span>
+            <span class="df-legend-item"><span class="df-legend-sq" style="background:#C9A84C"></span>Q2 FY2026</span>
+          </div>
+          <div id="df-attach-bars"></div>
+        </div>
+        <div class="df-card">
+          <div class="df-card-title">Account-level attach detail</div>
+          <table class="df-table">
+            <thead><tr><th style="width:24%">Account</th><th style="width:18%">Tier</th><th style="width:18%">Vertical</th><th style="width:14%">DE products</th><th style="width:14%">ARR</th><th style="width:12%">Status</th></tr></thead>
+            <tbody id="df-attach-tbl"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SQL TAB -->
+      <div id="df-sql" class="df-section">
+        <div class="df-card">
+          <div class="df-card-title">Query 1 — GTM rep adoption rate by region</div>
+          <div class="df-sql"><span class="df-cmt">-- % of reps per region who ran the DE play this quarter</span>
+<span class="df-kw">SELECT</span>
+    r.region,
+    <span class="df-fn">COUNT</span>(DISTINCT r.rep_id)                                    <span class="df-kw">AS</span> total_reps,
+    <span class="df-fn">COUNT</span>(DISTINCT <span class="df-kw">CASE WHEN</span> a.play_activated <span class="df-kw">THEN</span> r.rep_id <span class="df-kw">END</span>) <span class="df-kw">AS</span> active_reps,
+    <span class="df-fn">ROUND</span>(active_reps / total_reps * 100, 1)                     <span class="df-kw">AS</span> adoption_pct
+<span class="df-kw">FROM</span>      rep_master r
+<span class="df-kw">LEFT JOIN</span> activity_log a <span class="df-kw">ON</span> r.rep_id = a.rep_id
+    <span class="df-kw">AND</span> a.play_type = <span class="df-str">'DATA_ENGINEERING'</span>
+    <span class="df-kw">AND</span> a.quarter   = <span class="df-str">'Q2_FY2026'</span>
+<span class="df-kw">GROUP BY</span> 1
+<span class="df-kw">ORDER BY</span> adoption_pct <span class="df-kw">DESC</span>;</div>
+        </div>
+        <div class="df-card">
+          <div class="df-card-title">Query 2 — Whitespace accounts (core contract, zero DE attach)</div>
+          <div class="df-sql"><span class="df-kw">SELECT</span>
+    a.account_name, a.vertical, a.account_tier,
+    a.arr_usd                  <span class="df-kw">AS</span> current_arr,
+    a.estimated_de_potential   <span class="df-kw">AS</span> whitespace_arr,
+    <span class="df-fn">DATEDIFF</span>(<span class="df-str">'day'</span>, a.contract_start, <span class="df-fn">CURRENT_DATE</span>()) <span class="df-kw">AS</span> days_as_customer
+<span class="df-kw">FROM</span> account_master a
+<span class="df-kw">WHERE</span>
+    a.snowflake_contract = <span class="df-kw">TRUE</span>
+    <span class="df-kw">AND</span> a.account_id <span class="df-kw">NOT IN</span> (
+        <span class="df-kw">SELECT DISTINCT</span> account_id <span class="df-kw">FROM</span> product_usage
+        <span class="df-kw">WHERE</span> product_family = <span class="df-str">'DATA_ENGINEERING'</span>
+        <span class="df-kw">AND</span>   usage_month >= <span class="df-fn">DATEADD</span>(<span class="df-str">'month'</span>, -3, <span class="df-fn">CURRENT_DATE</span>())
+    )
+<span class="df-kw">ORDER BY</span> whitespace_arr <span class="df-kw">DESC</span> <span class="df-kw">LIMIT</span> 50;</div>
+        </div>
+        <div class="df-card">
+          <div class="df-card-title">Query 3 — Product attach rate by tier, Q1 vs Q2</div>
+          <div class="df-sql"><span class="df-kw">SELECT</span>
+    a.account_tier, p.product_name,
+    <span class="df-fn">COUNT</span>(DISTINCT <span class="df-kw">CASE WHEN</span> p.quarter = <span class="df-str">'Q1_FY2026'</span> <span class="df-kw">THEN</span> a.account_id <span class="df-kw">END</span>) <span class="df-kw">AS</span> q1_accounts,
+    <span class="df-fn">COUNT</span>(DISTINCT <span class="df-kw">CASE WHEN</span> p.quarter = <span class="df-str">'Q2_FY2026'</span> <span class="df-kw">THEN</span> a.account_id <span class="df-kw">END</span>) <span class="df-kw">AS</span> q2_accounts,
+    <span class="df-fn">COUNT</span>(DISTINCT a.account_id)                                                  <span class="df-kw">AS</span> total_accounts,
+    <span class="df-fn">ROUND</span>(q2_accounts / total_accounts * 100, 1)                                  <span class="df-kw">AS</span> attach_pct_q2
+<span class="df-kw">FROM</span> account_master a
+<span class="df-kw">JOIN</span> product_usage p <span class="df-kw">ON</span> a.account_id = p.account_id
+<span class="df-kw">WHERE</span> p.product_family = <span class="df-str">'DATA_ENGINEERING'</span>
+<span class="df-kw">GROUP BY</span> 1, 2
+<span class="df-kw">ORDER BY</span> 1, attach_pct_q2 <span class="df-kw">DESC</span>;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="h-rule"></div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="section-label fade-in">Selected experience</div>
+  <h2 class="section-title fade-in">Where I've<br><em>built things</em></h2>
+  <div class="work-list">
+    <div class="work-item fade-in">
+      <div class="work-meta">
+        <div class="work-company">IgniteTech</div>
+        <div class="work-period">Jul 2025 – Mar 2026</div>
+      </div>
+      <div>
+        <div class="work-role">Marketing Data Analyst</div>
+        <p class="work-desc">Owned the analytics layer for a distributed social-media GTM function. Built live performance dashboards that reduced reporting turnaround by ~30% and designed KPI frameworks that mapped content engagement directly to pipeline-stage outcomes — connecting social activity to revenue signals for the first time.</p>
+        <div class="work-tags">
+          <span class="work-tag">Dashboard design</span>
+          <span class="work-tag">Pipeline analytics</span>
+          <span class="work-tag">GTM reporting</span>
+          <span class="work-tag">Data-driven decisions</span>
+        </div>
+      </div>
+    </div>
+    <div class="work-item fade-in">
+      <div class="work-meta">
+        <div class="work-company">Olive Group</div>
+        <div class="work-period">Oct 2024 – Jul 2025</div>
+      </div>
+      <div>
+        <div class="work-role">Outbound GTM Architect</div>
+        <p class="work-desc">Founding outbound hire at a 600-person global edtech firm (Dublin HQ). Designed and owned the full outbound GTM motion from zero: ICP definition, toolstack selection (HubSpot + Apollo + LinkedIn Navigator), sequence architecture, and CRM workflow. Generated qualified pipeline into the hospitality sector within 60 days.</p>
+        <div class="work-tags">
+          <span class="work-tag">GTM design from zero</span>
+          <span class="work-tag">CRM architecture</span>
+          <span class="work-tag">Outbound motion</span>
+          <span class="work-tag">HubSpot · Apollo</span>
+        </div>
+      </div>
+    </div>
+    <div class="work-item fade-in">
+      <div class="work-meta">
+        <div class="work-company">SovTech</div>
+        <div class="work-period">Feb 2024 – Oct 2024</div>
+      </div>
+      <div>
+        <div class="work-role">Business Development Representative</div>
+        <p class="work-desc">Enterprise tech sales at Africa's leading software development firm. OKR-driven pipeline generation (5 SQLs/month) with rigorous CRM discipline — 25 cold calls, 25 emails, 25 LinkedIn connections daily. Handled initial Discovery calls end-to-end: qualifying technical requirements and mapping to engineering subscription model.</p>
+        <div class="work-tags">
+          <span class="work-tag">Enterprise sales</span>
+          <span class="work-tag">Pipeline generation</span>
+          <span class="work-tag">OKR execution</span>
+          <span class="work-tag">Discovery calls</span>
+        </div>
+      </div>
+    </div>
+    <div class="work-item fade-in">
+      <div class="work-meta">
+        <div class="work-company">Param Solutions</div>
+        <div class="work-period">Aug 2023 – Jan 2024</div>
+      </div>
+      <div>
+        <div class="work-role">Business Development Manager</div>
+        <p class="work-desc">Owned the full B2B sales cycle for a tech staff augmentation firm. Developed sales strategy, set quarterly targets, and acted as the product-to-field bridge — translating engineering capabilities into business value propositions and feeding client requirement patterns back into service design.</p>
+        <div class="work-tags">
+          <span class="work-tag">Full-cycle sales</span>
+          <span class="work-tag">Sales strategy</span>
+          <span class="work-tag">Product-field interlock</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="h-rule"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label fade-in">Capabilities</div>
+  <h2 class="section-title fade-in">What I<br><em>bring</em></h2>
+  <div class="skills-grid fade-in">
+    <div>
+      <div class="skills-col-title">GTM & Revenue Operations</div>
+      <div class="skill-item">Outbound motion design <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div></div>
+      <div class="skill-item">Pipeline analytics & reporting <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div></div>
+      <div class="skill-item">CRM architecture (HubSpot) <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div></div>
+      <div class="skill-item">Cross-functional alignment <div class="skill-bar"><div class="skill-bar-fill" style="width:88%"></div></div></div>
+      <div class="skill-item">Sales enablement <div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div></div>
+      <div class="skill-item">Whitespace & opportunity ID <div class="skill-bar"><div class="skill-bar-fill" style="width:82%"></div></div></div>
+    </div>
+    <div>
+      <div class="skills-col-title">Data & Tools</div>
+      <div class="skill-item">SQL (Snowflake) <div class="skill-bar"><div class="skill-bar-fill" style="width:70%"></div></div></div>
+      <div class="skill-item">Looker Studio / Tableau <div class="skill-bar"><div class="skill-bar-fill" style="width:78%"></div></div></div>
+      <div class="skill-item">Google Analytics <div class="skill-bar"><div class="skill-bar-fill" style="width:82%"></div></div></div>
+      <div class="skill-item">Apollo · LinkedIn Navigator <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div></div>
+      <div class="skill-item">Excel · Google Sheets (adv.) <div class="skill-bar"><div class="skill-bar-fill" style="width:88%"></div></div></div>
+      <div class="skill-item">AI tooling & automation <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="h-rule"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label fade-in">Get in touch</div>
+  <p class="contact-tagline fade-in">"Let's talk about building something that actually moves the needle."</p>
+  <div class="contact-links fade-in">
+    <a href="mailto:kanyamamwiinga@gmail.com" class="contact-link">kanyamamwiinga@gmail.com</a>
+    <a href="https://www.linkedin.com/in/kanyama-mwiinga-55b655216" target="_blank" class="contact-link">LinkedIn</a>
+    <a href="Kanyama_Mwiinga_CV.docx" download class="contact-link">Download CV</a>
+  </div>
+  <p class="contact-note fade-in" style="color:var(--cream3);font-size:0.78rem;">Based in Midrand, Gauteng &nbsp;·&nbsp; Open to remote and hybrid roles</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Kanyama Mwiinga</span>
+  <span>kanyama.co &nbsp;·&nbsp; Johannesburg, South Africa</span>
+</footer>
+
+<!-- CHART.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+/* ── Nav scroll ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+/* ── Scroll fade-in ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+/* ── Dashboard tab switch ── */
+function dfTab(id, btn) {
+  document.querySelectorAll('.df-section').forEach(s => s.classList.remove('on'));
+  document.querySelectorAll('.df-tab').forEach(b => b.classList.remove('on'));
+  document.getElementById('df-' + id).classList.add('on');
+  btn.classList.add('on');
+}
+
+/* ── Dashboard data ── */
+const regions = [
+  {name:'DACH',pct:78},{name:'APAC',pct:67},{name:'France',pct:62},
+  {name:'UKI',pct:56},{name:'Nordics',pct:51},{name:'Benelux',pct:44}
+];
+const repData = [
+  {name:'A. Schmidt',region:'DACH',play:true,pipe:'$420K',deals:3,st:'on'},
+  {name:'B. Okonkwo',region:'APAC',play:true,pipe:'$680K',deals:4,st:'on'},
+  {name:'E. Murphy',region:'UKI',play:true,pipe:'$540K',deals:3,st:'on'},
+  {name:'H. Bauer',region:'DACH',play:true,pipe:'$390K',deals:2,st:'on'},
+  {name:'D. Hansen',region:'Nordics',play:false,pipe:'$90K',deals:1,st:'amber'},
+  {name:'G. Larsson',region:'Nordics',play:false,pipe:'$0',deals:0,st:'red'},
+  {name:'F. Visser',region:'Benelux',play:false,pipe:'$60K',deals:0,st:'amber'},
+];
+const wsAccounts = [
+  {name:'Volta Insurance',v:'FSI',opp:1450,score:94},
+  {name:'Meridian Bank',v:'FSI',opp:1200,score:92},
+  {name:'Pacific Bancorp',v:'FSI',opp:890,score:81},
+  {name:'Crest Pharma',v:'Healthcare',opp:910,score:83},
+  {name:'NordCare Group',v:'Healthcare',opp:860,score:85},
+  {name:'Helios Retail',v:'Retail',opp:980,score:87},
+  {name:'Orbit Retail',v:'Retail',opp:710,score:76},
+  {name:'Prism Commerce',v:'Retail',opp:620,score:72},
+  {name:'Atlas Media',v:'Media',opp:740,score:78},
+  {name:'Luma Studios',v:'Media',opp:540,score:68},
+  {name:'CoreMfg Ltd',v:'Manufacturing',opp:480,score:65},
+  {name:'Vantage Capital',v:'FSI',opp:1100,score:89},
+];
+const attachAccounts = [
+  {name:'Volta Insurance',tier:'Enterprise',v:'FSI',prod:4,arr:'$2,400K',st:'on'},
+  {name:'Meridian Bank',tier:'Enterprise',v:'FSI',prod:3,arr:'$1,800K',st:'on'},
+  {name:'Helios Retail',tier:'Enterprise',v:'Retail',prod:2,arr:'$1,200K',st:'amber'},
+  {name:'NordCare Group',tier:'Commercial',v:'Healthcare',prod:3,arr:'$680K',st:'on'},
+  {name:'Atlas Media',tier:'Commercial',v:'Media',prod:1,arr:'$420K',st:'amber'},
+  {name:'Prism Commerce',tier:'Commercial',v:'Retail',prod:0,arr:'$310K',st:'red'},
+  {name:'CoreMfg Ltd',tier:'SMB',v:'Manufacturing',prod:1,arr:'$160K',st:'amber'},
+  {name:'Luma Studios',tier:'SMB',v:'Media',prod:0,arr:'$95K',st:'red'},
+];
+
+/* ── Render rep bars ── */
+function renderRepBars() {
+  document.getElementById('df-rep-bars').innerHTML = regions.map(r => {
+    const c = r.pct >= 70 ? '#5DCAA5' : r.pct >= 55 ? '#EF9F27' : '#D85A30';
+    return `<div class="df-bar-row">
+      <div class="df-bar-label">${r.name}</div>
+      <div class="df-bar-track"><div class="df-bar-fill" style="width:${r.pct}%;background:${c}"></div></div>
+      <div class="df-bar-pct">${r.pct}%</div>
+    </div>`;
+  }).join('');
+}
+
+/* ── Render rep table ── */
+function renderRepTable() {
+  document.getElementById('df-rep-tbl').innerHTML = repData.map(r => {
+    const b = r.st==='on' ? '<span class="df-badge df-b-green">Active</span>' :
+              r.st==='red' ? '<span class="df-badge df-b-red">At risk</span>' :
+              '<span class="df-badge df-b-amber">Pending</span>';
+    return `<tr><td>${r.name}</td><td>${r.region}</td><td>${r.play?'Yes':'No'}</td><td>${r.pipe}</td><td>${r.deals}</td><td>${b}</td></tr>`;
+  }).join('');
+}
+
+/* ── Render whitespace cards ── */
+function dfWS() {
+  const vf = document.getElementById('df-vf').value;
+  const sf = document.getElementById('df-vs').value;
+  let d = vf === 'all' ? wsAccounts : wsAccounts.filter(a => a.v === vf);
+  d = [...d].sort((a,b) => sf==='opp' ? b.opp-a.opp : b.score-a.score);
+  document.getElementById('df-ws-cards').innerHTML = d.slice(0,8).map(a =>
+    `<div class="df-ws-card">
+      <div class="df-ws-account">${a.name}</div>
+      <div class="df-ws-v">${a.v} · Score ${a.score}</div>
+      <div class="df-ws-opp">$${a.opp.toLocaleString()}K</div>
+      <div class="df-ws-lbl">est. ARR potential</div>
+    </div>`).join('');
+}
+
+/* ── Render attach bars ── */
+function renderAttachBars() {
+  const products = [
+    {name:'Snowpark',q1:20,q2:31},
+    {name:'Dynamic Tables',q1:22,q2:28},
+    {name:'Streams & Tasks',q1:18,q2:24},
+    {name:'Iceberg Tables',q1:10,q2:17},
+  ];
+  document.getElementById('df-attach-bars').innerHTML = products.map(p => `
+    <div style="margin-bottom:12px">
+      <div style="font-size:11px;color:rgba(245,240,232,0.5);margin-bottom:4px">${p.name}</div>
+      <div class="df-bar-row" style="margin-bottom:3px">
+        <div class="df-bar-label" style="min-width:24px;font-size:10px;color:rgba(245,240,232,0.3)">Q1</div>
+        <div class="df-bar-track"><div class="df-bar-fill" style="width:${p.q1*2.5}%;background:#1D6E4F"></div></div>
+        <div class="df-bar-pct">${p.q1}%</div>
+      </div>
+      <div class="df-bar-row">
+        <div class="df-bar-label" style="min-width:24px;font-size:10px;color:rgba(245,240,232,0.3)">Q2</div>
+        <div class="df-bar-track"><div class="df-bar-fill" style="width:${p.q2*2.5}%;background:#C9A84C"></div></div>
+        <div class="df-bar-pct">${p.q2}%</div>
+      </div>
+    </div>`).join('');
+}
+
+/* ── Render attach table ── */
+function renderAttachTable() {
+  document.getElementById('df-attach-tbl').innerHTML = attachAccounts.map(a => {
+    const b = a.st==='on' ? '<span class="df-badge df-b-green">Healthy</span>' :
+              a.st==='red' ? '<span class="df-badge df-b-red">No DE</span>' :
+              '<span class="df-badge df-b-amber">Partial</span>';
+    return `<tr><td>${a.name}</td><td>${a.tier}</td><td>${a.v}</td><td>${a.prod}</td><td>${a.arr}</td><td>${b}</td></tr>`;
+  }).join('');
+}
+
+/* ── Charts ── */
+const GOLD = '#C9A84C', TEAL = '#5DCAA5', DK_GREEN = '#1D6E4F', MUTED = 'rgba(245,240,232,0.15)';
+const gridColor = 'rgba(245,240,232,0.07)';
+const tickColor = 'rgba(245,240,232,0.4)';
+const baseOpts = {
+  responsive: true, maintainAspectRatio: false,
+  plugins: { legend: { display: false } },
+};
+
+window.addEventListener('load', () => {
+  renderRepBars();
+  renderRepTable();
+  dfWS();
+  renderAttachBars();
+  renderAttachTable();
+
+  /* Trend line */
+  new Chart(document.getElementById('df-trend'), {
+    type: 'line',
+    data: {
+      labels: ['W1','W2','W3','W4','W5','W6','W7','W8'],
+      datasets: [{ data:[38,42,47,51,55,61,67,72], borderColor: GOLD, backgroundColor:'transparent', borderWidth:2, pointBackgroundColor: GOLD, pointRadius:3, tension:0.35 }]
+    },
+    options: { ...baseOpts, scales: {
+      y: { min:25, max:85, ticks:{ color:tickColor, font:{size:10}, callback:v=>v+'%' }, grid:{color:gridColor} },
+      x: { ticks:{ color:tickColor, font:{size:10} }, grid:{display:false} }
+    }}
+  });
+
+  /* Whitespace bar */
+  new Chart(document.getElementById('df-ws-chart'), {
+    type: 'bar',
+    data: {
+      labels: ['FSI','Retail','Healthcare','Media','Manufacturing'],
+      datasets: [{ data:[7.2,5.8,4.1,3.4,2.1], backgroundColor:[GOLD,'#5DCAA5','#1D6E4F','rgba(245,240,232,0.3)','rgba(245,240,232,0.15)'], borderRadius:2 }]
+    },
+    options: { ...baseOpts, indexAxis:'y', scales: {
+      x: { ticks:{ color:tickColor, font:{size:10}, callback:v=>'$'+v+'M' }, grid:{color:gridColor} },
+      y: { ticks:{ color:tickColor, font:{size:10} }, grid:{display:false} }
+    }}
+  });
+
+  /* Attach grouped bar */
+  new Chart(document.getElementById('df-attach-chart'), {
+    type: 'bar',
+    data: {
+      labels: ['Enterprise','Commercial','SMB'],
+      datasets: [
+        { label:'Q1', data:[58,33,16], backgroundColor: DK_GREEN, borderRadius:2 },
+        { label:'Q2', data:[68,41,22], backgroundColor: GOLD, borderRadius:2 },
+      ]
+    },
+    options: { ...baseOpts, scales: {
+      y: { min:0, max:90, ticks:{ color:tickColor, font:{size:10}, callback:v=>v+'%' }, grid:{color:gridColor} },
+      x: { ticks:{ color:tickColor, font:{size:10} }, grid:{display:false} }
+    }}
+  });
+
+  /* Mix doughnut */
+  new Chart(document.getElementById('df-mix-chart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Snowpark','Dynamic Tables','Streams & Tasks','Iceberg Tables'],
+      datasets: [{ data:[31,28,24,17], backgroundColor:[GOLD,TEAL,DK_GREEN,'rgba(245,240,232,0.2)'], borderWidth:0 }]
+    },
+    options: { ...baseOpts, cutout:'60%' }
+  });
+});
+</script>
+</body>
+</html>
